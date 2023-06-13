@@ -39,7 +39,7 @@ def encode(y):
         return 1
     elif y == "m":
         return 0
-dataFrame["EncodeSex"]=dataFrame.apply(lambda x: encode(x["sex"]),axis=1)
+dataFrame["EncodeSex"]=dataFrame.apply(lambda y: encode(y["sex"]),axis=1)
 
 dataFrame.drop("case",axis=1,inplace=True)
 dataFrame.drop("Pop",axis=1,inplace=True)
@@ -100,7 +100,7 @@ plt.scatter(y_test,tahminDizisi)
 plt.plot(y_test,y_test,"g-")
 plt.show()
 
-yeniSicanSeries = dataFrame.drop("age",axis=1).iloc[45]
+yeniSicanSeries = dataFrame.drop("age",axis=1).iloc[2]
 print(yeniSicanSeries)
 yeniSicanSeries = scaler.transform(yeniSicanSeries.values.reshape(-1,12))
 print(model.predict(yeniSicanSeries))
