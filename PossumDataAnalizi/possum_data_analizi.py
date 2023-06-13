@@ -39,7 +39,7 @@ def encode(y):
         return 1
     elif y == "m":
         return 0
-dataFrame["EncodeSex"]=dataFrame.apply(lambda x: encode(x["sex"]),axis=1)
+dataFrame["EncodeSex"]=dataFrame.apply(lambda y: encode(y["sex"]),axis=1)
 
 dataFrame.drop("case",axis=1,inplace=True)
 dataFrame.drop("Pop",axis=1,inplace=True)
